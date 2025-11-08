@@ -91,6 +91,7 @@ This ensures:
 pnpm build              # Build all packages and apps at once
 pnpm build:packages     # Build only shared packages (types, db)
 pnpm build:types        # Build only types package
+pnpm build:db           # Build only db package
 pnpm build:api          # Build only API
 pnpm build:web          # Build only web app
 
@@ -98,6 +99,12 @@ pnpm build:web          # Build only web app
 pnpm dev:api            # Run API server
 pnpm dev:web            # Run web app
 pnpm dev:types          # Watch types package
+pnpm dev:db             # Watch db package
+
+# Database Commands (Drizzle)
+pnpm db:generate        # Generate migrations
+pnpm db:push            # Push schema to database
+pnpm db:studio          # Open Drizzle Studio
 ```
 
 ### Package Level
