@@ -4,6 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "pnpm -r build",
+    "build:packages": "pnpm -r --filter='./packages/*' build",
+    "build:types": "pnpm --filter=@contractlab/types build",
+    "build:api": "pnpm --filter=api build",
+    "build:web": "pnpm --filter=web build",
+    "dev:api": "pnpm --filter=api dev",
+    "dev:web": "pnpm --filter=web dev",
+    "dev:types": "pnpm --filter=@contractlab/types dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

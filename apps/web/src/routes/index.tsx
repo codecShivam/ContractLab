@@ -33,6 +33,12 @@ function App() {
         >
           Learn TanStack
         </a>
+        <a
+          className="text-[#61dafb] hover:underline mt-4 block"
+          href="/demo/trpc"
+        >
+          Try tRPC Demo →
+        </a>
       </header>
     </div>
   )
