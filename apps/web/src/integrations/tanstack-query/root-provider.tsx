@@ -7,7 +7,7 @@ export function getContext() {
   const trpcClient = trpc.createClient({
     links: [
       httpBatchLink({
-        url: 'http://localhost:4000/trpc',
+        url: 'https://easter-plots-value-broadway.trycloudflare.com/trpc',
       }),
     ],
   })

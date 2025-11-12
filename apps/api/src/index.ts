@@ -5,7 +5,12 @@ import { appRouter } from './router.js'
 import { createContext } from './context.js'
 
 const app = express()
-app.use(cors())
+// allow all origins
+app.use(cors({
+  origin: '*',
+  credentials: true,
+  maxAge: 600,
+}))
 app.use(
   '/trpc',
   trpcExpress.createExpressMiddleware({
