@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx src/index.ts",
+    "dev": "tsx --watch --env-file=../../.env src/index.ts",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.8.1",
   "dependencies": {
+    "@contractlab/db": "workspace:*",
     "@contractlab/types": "workspace:*",
     "@trpc/client": "^11.7.1",
     "@trpc/react-query": "^11.7.1",

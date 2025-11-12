@@ -1,8 +1,11 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import cors from 'cors'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { appRouter } from './router.js'
 import { createContext } from './context.js'
+import { pool } from '@contractlab/db'
 
 const app = express()
 // allow all origins
@@ -20,4 +23,6 @@ app.use(
   })
 )
 
-app.listen(4000, () => console.log('🚀 API running on http://localhost:4000'))
+app.listen(process.env.PORT, async () => {
+  console.log(`🚀 API running on http://localhost:${process.env.PORT}`)
+})

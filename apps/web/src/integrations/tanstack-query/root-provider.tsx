@@ -7,7 +7,7 @@ export function getContext() {
   const trpcClient = trpc.createClient({
     links: [
       httpBatchLink({
-        url: 'https://easter-plots-value-broadway.trycloudflare.com/trpc',
+        url: 'https://contractlab-api.lzeuyy.easypanel.host/trpc',
       }),
     ],
   })
