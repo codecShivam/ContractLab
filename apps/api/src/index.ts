@@ -11,6 +11,7 @@ app.use(cors({
   credentials: true,
   maxAge: 600,
 }))
+
 app.use(
   '/trpc',
   trpcExpress.createExpressMiddleware({
