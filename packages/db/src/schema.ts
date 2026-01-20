@@ -1,9 +1,5 @@
-import { pgTable, serial, text, json, timestamp } from 'drizzle-orm/pg-core'
+// Export Auth.js tables
+export * from './schema/auth.js'
 
-export const collections = pgTable('collections', {
-  id: serial('id').primaryKey(),
-  name: text('name').notNull(),
-  data: json('data').notNull(),
-  createdAt: timestamp('created_at').defaultNow(),
-})
-
+// Export Collections tables
+export * from './schema/collections.js'

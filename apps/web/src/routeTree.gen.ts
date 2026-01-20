@@ -9,48 +9,65 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContractIdeRouteImport } from './routes/contract-ide'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoTrpcRouteImport } from './routes/demo/trpc'
+import { Route as ShareShareIdRouteImport } from './routes/share.$shareId'
 
+const ContractIdeRoute = ContractIdeRouteImport.update({
+  id: '/contract-ide',
+  path: '/contract-ide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoTrpcRoute = DemoTrpcRouteImport.update({
-  id: '/demo/trpc',
-  path: '/demo/trpc',
+const ShareShareIdRoute = ShareShareIdRouteImport.update({
+  id: '/share/$shareId',
+  path: '/share/$shareId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/demo/trpc': typeof DemoTrpcRoute
+  '/contract-ide': typeof ContractIdeRoute
+  '/share/$shareId': typeof ShareShareIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/demo/trpc': typeof DemoTrpcRoute
+  '/contract-ide': typeof ContractIdeRoute
+  '/share/$shareId': typeof ShareShareIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/demo/trpc': typeof DemoTrpcRoute
+  '/contract-ide': typeof ContractIdeRoute
+  '/share/$shareId': typeof ShareShareIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/demo/trpc'
+  fullPaths: '/' | '/contract-ide' | '/share/$shareId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/demo/trpc'
-  id: '__root__' | '/' | '/demo/trpc'
+  to: '/' | '/contract-ide' | '/share/$shareId'
+  id: '__root__' | '/' | '/contract-ide' | '/share/$shareId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoTrpcRoute: typeof DemoTrpcRoute
+  ContractIdeRoute: typeof ContractIdeRoute
+  ShareShareIdRoute: typeof ShareShareIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contract-ide': {
+      id: '/contract-ide'
+      path: '/contract-ide'
+      fullPath: '/contract-ide'
+      preLoaderRoute: typeof ContractIdeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -58,11 +75,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/trpc': {
-      id: '/demo/trpc'
-      path: '/demo/trpc'
-      fullPath: '/demo/trpc'
-      preLoaderRoute: typeof DemoTrpcRouteImport
+    '/share/$shareId': {
+      id: '/share/$shareId'
+      path: '/share/$shareId'
+      fullPath: '/share/$shareId'
+      preLoaderRoute: typeof ShareShareIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DemoTrpcRoute: DemoTrpcRoute,
+  ContractIdeRoute: ContractIdeRoute,
+  ShareShareIdRoute: ShareShareIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

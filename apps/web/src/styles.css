@@ -7,9 +7,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1f2e;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Resizable panel styles */
+[data-panel-resize-handle-enabled] {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+[data-panel-resize-handle-enabled]:hover {
+  background-color: rgba(112, 145, 230, 0.3) !important;
+}
+
+[data-panel-resize-handle-enabled]:active {
+  background-color: rgba(112, 145, 230, 0.5) !important;
+}
+
+/* Smooth panel transitions */
+[data-panel] {
+  transition: flex-basis 0.1s ease;
+}
+
+/* Tooltip animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
